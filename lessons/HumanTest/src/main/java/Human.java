@@ -24,6 +24,6 @@ public class Human {
 
     @Override
     public String toString() {
-        return "My name is " + this.name + " " + ", age is " + this.age;
+        return "My name " + this.name + " " + ", age is " + this.age;
     }
 }
