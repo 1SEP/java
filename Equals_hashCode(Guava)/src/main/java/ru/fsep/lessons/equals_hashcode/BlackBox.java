@@ -8,9 +8,12 @@ import com.google.common.base.Objects;
  * Created by Надежда on 25.06.2015.
  */
 public class BlackBox {
+    public static final int MIN_VARA = 0;
+    public static final int MIN_VARB = 1;
     int varA, varB;
 
     public BlackBox(int varA,int varB) {
+        if( varA > MIN_VARA && varB > MIN_VARB)
         this.varA = varA;
         this.varB = varB;
     }
