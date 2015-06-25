@@ -1,6 +1,7 @@
 package ru.fsep.lessons;
 
-import com.google.common.base.*;
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
 public class BlackBox {
     int varA;
@@ -12,7 +13,12 @@ public class BlackBox {
     }
 
     @Override
-    public boolean equals(final Object obj) {
+    public int hashCode() {
+        return Objects.hashCode(varA, varB);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -25,12 +31,10 @@ public class BlackBox {
     }
 
     @Override
-    public int hashCode(){
-        return Objects.hashCode(varA, varB);
-    }
-
-    @Override
-    public String toString(){
-        return MoreObjects.toStringHelper(this).add("varA", varA).add("varB", varB).toString();
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("varA", varA)
+                .add("varB", varB)
+                .toString();
     }
 }
