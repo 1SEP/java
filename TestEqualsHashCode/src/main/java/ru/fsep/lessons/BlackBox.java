@@ -1,8 +1,7 @@
 package ru.fsep.lessons;
 
-/**
- * Created by aspire on 26.06.2015.
- */
+import com.google.common.base.*;
+
 public class BlackBox {
     int varA;
     int varB;
@@ -13,27 +12,25 @@ public class BlackBox {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + varA;
-        result = prime * result + varB;
-        return result;
+    public boolean equals(final Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final BlackBox other = (BlackBox) obj;
+        return Objects.equal(this.varA, other.varA)
+                && Objects.equal(this.varB, other.varB);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(this == obj)
-            return true;
-        if(obj == null)
-            return false;
-        if(getClass() != obj.getClass())
-            return false;
-        BlackBox that = (BlackBox) obj;
-        if(varA != that.varA)
-            return false;
-        if(varB != that.varB)
-            return false;
-        return true;
+    public int hashCode(){
+        return Objects.hashCode(varA, varB);
+    }
+
+    @Override
+    public String toString(){
+        return MoreObjects.toStringHelper(this).add("varA", varA).add("varB", varB).toString();
     }
 }
