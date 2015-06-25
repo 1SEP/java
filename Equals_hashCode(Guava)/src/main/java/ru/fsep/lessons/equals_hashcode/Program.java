@@ -14,6 +14,10 @@ public class Program {
 
         System.out.println(blackBox1.equals(blackBox2));
 
-        System.out.println(blackBox1.toString());
+        System.out.println(blackBox1);//неявно вызывает toString 
+
+
     }
+
+
 }
