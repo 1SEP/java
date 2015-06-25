@@ -4,12 +4,16 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 public class BlackBox {
+    public static final int MIN_AGE = 0;
+    public static final int MAX_AGE = 200;
     int varA;
     int varB;
 
     public BlackBox(int varA, int varB) {
-        this.varA = varA;
-        this.varB = varB;
+        if(varA > MIN_AGE)
+            this.varA = varA;
+        if(varB > MAX_AGE)
+            this.varB = varB;
     }
 
     @Override
