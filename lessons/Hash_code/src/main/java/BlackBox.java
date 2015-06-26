@@ -1,3 +1,6 @@
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
+
 /**
  * Created by ramil on 26.06.2015.
  */
@@ -5,6 +8,7 @@ public class BlackBox {
 
     int varA = 1;
     int varB = 2;
+    String test = "";
 
     BlackBox(int varA , int varB){
         this.varA = varA;
@@ -29,10 +33,12 @@ public class BlackBox {
         if(getClass() != obj.getClass())
             return false;
         BlackBox that = (BlackBox)obj;
-                if(varA != that.varA)
-                    return false;
-                if(varB != that.varB)
-                    return false;
-        return true;
+        return Objects.equal(this.varA,that.varA) && Objects.equal(this.varB,that.varB);
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("test", test).toString();
     }
 }
