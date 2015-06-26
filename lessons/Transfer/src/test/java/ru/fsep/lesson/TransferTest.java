@@ -1,8 +1,9 @@
 package ru.fsep.lesson;
 
-import junit.framework.AssertionFailedError;
 import org.junit.Test;
 import org.junit.Before;
+
+import static junit.framework.TestCase.assertEquals;
 
 
 public class TransferTest {
@@ -10,11 +11,12 @@ public class TransferTest {
     private Man man;
     private Women women;
 
-    public void assertEquals(Human expected, Human actual){
-        if (!expected.equals(actual)){
-            throw new AssertionFailedError();
-        }
-    }
+//    public void assertEquals(Human expected, Human actual){
+//        if (!expected.equals(actual)){
+//            throw new AssertionFailedError();
+//        }
+//    }
+
 
     @Before
     public void setUpOne() throws Exception {
@@ -27,7 +29,7 @@ public class TransferTest {
         Women expected = new Women("Bob", 31);
         Women actual = Transfer.transfer(man);
 
-        assertEquals(expected, actual);
+        assertEquals (expected, actual);
     }
 
     @Before

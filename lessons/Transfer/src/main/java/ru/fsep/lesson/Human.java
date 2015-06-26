@@ -43,16 +43,16 @@ public class Human {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        final Human other = (Human) obj;
-        return Objects.equal(this.name, other.name)
-                && Objects.equal(this.age, other.age);
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+            final Human other = (Human) obj;
+            return Objects.equal(this.name, other.name)
+                    && Objects.equal(this.age, other.age);
     }
 
     @Override
