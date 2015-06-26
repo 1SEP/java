@@ -6,6 +6,7 @@ import com.google.common.base.Objects;
  */
 public class BlackBox {
 
+    public static final int MIN_AGE = 0;
     int varA = 1;
     int varB = 2;
     String test = "";
@@ -13,6 +14,9 @@ public class BlackBox {
     BlackBox(int varA , int varB){
         this.varA = varA;
         this.varB = varB;
+        if(varA > MIN_AGE) {
+
+        }
     }
     @Override
     public int hashCode(){
