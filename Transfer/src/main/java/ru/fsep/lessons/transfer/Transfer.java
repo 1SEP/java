@@ -10,12 +10,11 @@ public class Transfer {
         return super.toString();
     }
 
-    public Man transfer( Woman girl)
-    {
+    public Man transe( Woman girl)    {
         return new Man(girl.getAge(),girl.getName());
     }
 
-    public Woman transfer (Man boy){
+    public Woman transe (Man boy){
         return new Woman(boy.getAge(),boy.getName());
     }
 }
