@@ -22,15 +22,19 @@ public class TransferTest {
 
     @Test
     public void testTrans() throws Exception {
-        Class actual = testWoman.getClass();
-        Class expected = testTransfer.trans(testMan).getClass();
+        //testing Woman class object
+        Class expected = testWoman.getClass();
+        Woman actualWoman = testTransfer.trans(testMan);
+        Class actual = actualWoman.getClass();
         assertEquals(expected, actual);
     }
 
     @Test
     public void testTrans1() throws Exception {
-        Class actual = testMan.getClass();
-        Class expected = testTransfer.trans(testWoman).getClass();
+        //testing Man class object
+        Class expected = testMan.getClass();
+        Man actualMan = testTransfer.trans(testWoman);
+        Class actual = actualMan.getClass();
         assertEquals(expected, actual);
     }
 }
