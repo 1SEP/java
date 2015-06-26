@@ -6,12 +6,13 @@ import com.google.common.base.Objects;
  * Created by aspire on 26.06.2015.
  */
 public class Human {
+    private final int MIN_AGE = 0;
     private int age;
     private String name;
 
     public Human(int age, String name) {
         this.name = name;
-        if(age >= 0){
+        if(age >= MIN_AGE){
             this.age = age;
         }
         else
