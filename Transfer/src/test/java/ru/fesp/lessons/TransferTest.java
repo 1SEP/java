@@ -1,6 +1,7 @@
 package ru.fesp.lessons;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -21,14 +22,14 @@ public class TransferTest {
     }
 
     @Test
-    public void testTrans() throws Exception {
+    public void testTransToMan() throws Exception {
         Class expected = transfer.trans(testWoman).getClass();
         Class actual = testMan.getClass();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void testTrans1() throws Exception {
+    public void testTransToWoman() throws Exception {
         Class expected = transfer.trans(testMan).getClass();
         Class actual = testWoman.getClass();
         assertEquals(expected, actual);
