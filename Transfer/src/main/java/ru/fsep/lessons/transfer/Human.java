@@ -1,6 +1,6 @@
-package ru.fsep.lessons;
+package ru.fsep.lessons.transfer;
 
-import com.google.common.base.*;
+import com.google.common.base.Objects;
 
 /**
  * Created by aspire on 26.06.2015.

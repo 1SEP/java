@@ -1,4 +1,4 @@
-package ru.fsep.lessons;
+package ru.fsep.lessons.transfer;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,8 +21,7 @@ public class TransferTest {
     }
 
     @Test
-    public void testTrans() throws Exception {
-        //testing Woman class object
+    public void testTransManToWoman() throws Exception {
         Class expected = testWoman.getClass();
         Woman actualWoman = testTransfer.trans(testMan);
         Class actual = actualWoman.getClass();
@@ -30,8 +29,7 @@ public class TransferTest {
     }
 
     @Test
-    public void testTrans1() throws Exception {
-        //testing Man class object
+    public void testTransWomanToMan() throws Exception {
         Class expected = testMan.getClass();
         Man actualMan = testTransfer.trans(testWoman);
         Class actual = actualMan.getClass();
