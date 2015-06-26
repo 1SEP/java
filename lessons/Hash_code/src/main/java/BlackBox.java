@@ -39,6 +39,9 @@ public class BlackBox {
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-                .add("test", test).toString();
+                .add("varA", varA)
+                .add("varB", varB)
+                .add("test", test)
+                .toString();
     }
 }
