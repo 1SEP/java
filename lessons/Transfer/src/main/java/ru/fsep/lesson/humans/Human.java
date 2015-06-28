@@ -1,10 +1,11 @@
-package ru.fsep.lesson;
+package ru.fsep.lesson.humans;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 
 public class Human {
 
+    public static final int MIN_AGE = 18;
     final private int MAX_LONG_NAME = 15;
 
     protected String name;
@@ -12,29 +13,26 @@ public class Human {
     protected int age;
 
     public Human(String name, int age) {
-        this.name = name;
-        this.age = age;
+        if (name.length() < MAX_LONG_NAME && age >= MIN_AGE){
+            this.name = name;
+            this.age = age;
+        }
+
+        if (name.length() >= MAX_LONG_NAME){
+            throw new IllegalArgumentException("Long of name more max value");
+        }
+
+        if (age < MIN_AGE){
+            throw new IllegalArgumentException("Age is less min value");
+        }
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        if (name.length() < MAX_LONG_NAME) {
-            this.name = name;
-        } else {
-            System.out.println("Error");
-        }
-
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package ru.fsep.lesson;
+package ru.fsep.lesson.humans;
 
 import com.google.common.base.MoreObjects;
 

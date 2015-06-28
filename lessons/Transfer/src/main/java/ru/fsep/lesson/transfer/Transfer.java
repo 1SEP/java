@@ -1,4 +1,7 @@
-package ru.fsep.lesson;
+package ru.fsep.lesson.transfer;
+
+import ru.fsep.lesson.humans.Man;
+import ru.fsep.lesson.humans.Women;
 
 public class Transfer {
 
