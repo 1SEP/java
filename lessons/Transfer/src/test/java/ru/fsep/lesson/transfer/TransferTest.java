@@ -1,4 +1,4 @@
-package ru.fsep.lesson;
+package ru.fsep.lesson.transfer;
 
 import org.junit.Test;
 import org.junit.Before;
