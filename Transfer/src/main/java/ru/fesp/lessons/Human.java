@@ -1,6 +1,7 @@
 package ru.fesp.lessons;
 
 import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
 /**
  * Created by Ôëþð on 26.06.2015.
@@ -24,6 +25,19 @@ public class Human {
         return name;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return Objects.equal(age, human.age) &&
+                Objects.equal(name, human.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(age, name);
+    }
 
     @Override
     public String toString() {

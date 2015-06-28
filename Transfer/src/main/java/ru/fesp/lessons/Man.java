@@ -7,8 +7,6 @@ import com.google.common.base.MoreObjects;
  */
 public class Man extends Human {
 
-    private int age;
-    private String name;
     public Man(int age, String name) {
         super(age, name);
     }
