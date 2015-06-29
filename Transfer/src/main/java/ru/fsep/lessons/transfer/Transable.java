@@ -5,6 +5,4 @@ package ru.fsep.lessons.transfer;
  */
 public interface Transable {
   public Human trans();
-
-
 }

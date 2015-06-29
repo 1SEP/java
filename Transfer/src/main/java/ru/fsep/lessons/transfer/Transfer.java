@@ -20,9 +20,8 @@ public class Transfer {
         return new Woman(boy.getAge(), boy.getName());
     }
 
-    public Transable[] TranseAll(Transable transeble[]) {
+    public void  transeAll(Transable transeble[]) {
         for (int i = 0; i < transeble.length; i++)
             transeble[i] =(Transable) transeble[i].trans();
-        return transeble;
     }
 }

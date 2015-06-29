@@ -58,7 +58,7 @@ public class TestTransfer {
 
         Transable[]expected = testExpected;
 
-        Transable[] tests = testTransfer.TranseAll(testTransables);
+        Transable[] tests = testTransfer.transeAll(testTransables);
         Transable []actual = tests;
 
         assertArrayEquals(expected,actual);

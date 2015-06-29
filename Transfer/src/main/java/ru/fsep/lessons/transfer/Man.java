@@ -10,15 +10,12 @@ public class Man  extends Human implements Transable {
         super(age, name);
     }
 
-
-
     @Override
     public String toString(){
         return super.toString();
     }
 
-
-
+    @Override
     public Woman trans(){
         return new Woman(this.getAge(),this.getName());
     }

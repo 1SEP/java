@@ -23,7 +23,7 @@ public class Program {
         System.out.println(transeHuman[i]);
 
         Transfer transnew = new Transfer();
-        transnew.TranseAll(transeHuman);
+        transnew.transeAll(transeHuman);
 
           for (int i = 0; i < transeHuman.length; i++){
             System.out.println(transeHuman[i]);

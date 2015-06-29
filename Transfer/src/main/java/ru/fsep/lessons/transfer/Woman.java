@@ -15,7 +15,7 @@ public class Woman extends Human {
         return super.toString();
     }
 
-
+    @Override
     public Man trans()
     {
         return new Man(this.getAge(),this.getName());

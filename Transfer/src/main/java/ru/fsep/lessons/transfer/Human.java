@@ -59,7 +59,7 @@ public class Human implements Transable {
                 .toString();
     }
 
-    public Human trans() throws NotImplementedException{
-        return null;
+    public Human trans() {
+        throw new NotImplementedException();
     }
 }
