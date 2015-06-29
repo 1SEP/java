@@ -9,6 +9,14 @@ public class Man extends Human{
         super(age, name);
     }
 
+
+    @Override
+    public Woman trans()
+    {
+        return new Woman(this.getAge(),this.getName());
+    }
+
+
     @Override
     public String toString() {
 

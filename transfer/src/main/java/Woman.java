@@ -3,12 +3,17 @@ import com.google.common.base.MoreObjects;
 /**
  * Created by Rauf on 29.06.2015.
  */
-public class Woman extends Human {
+public class Woman extends Human implements Transable{
 
     public Woman(int age, String name) {
         super(age, name);
     }
 
+    @Override
+    public Man trans()
+    {
+        return new Man(this.getAge(),this.getName());
+    }
     @Override
     public String toString() {
 

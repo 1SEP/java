@@ -1,4 +1,5 @@
 import com.google.common.base.Objects;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by Rauf on 29.06.2015.
@@ -42,7 +43,7 @@ public class Human implements Transable{
                 && Objects.equal(this.name, other.name);
     }
 
-    public Human trans(Human human) {
-        return new Transfer().trans(human);
+    public Human trans() {
+        throw new NotImplementedException();
     }
 }
