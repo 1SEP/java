@@ -15,8 +15,8 @@ public class TransferTest {
     @Before
     public void setUp() throws Exception {
         testTransfer = new Transfer();
-        testTransables = new Transable[0];
-        testTransables2 = new Transable[0];
+        testTransables = new Transable[10];
+        testTransables2 = new Transable[10];
         for(int i=0;i<10;i++){
             testTransables[i]=new Man(i,"newman"+i);
         }
