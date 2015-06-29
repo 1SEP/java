@@ -16,7 +16,7 @@ public class Transfer {
 
     public void transAll(Transable [] transables){
         for (int i = 0; i < transables.length; i++) {
-            transables[i] = (Transable)transables[i].trans();
+            transables[i] = transables[i].trans();
         }
     }
 }

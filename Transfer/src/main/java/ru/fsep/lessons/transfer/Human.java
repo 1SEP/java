@@ -1,11 +1,13 @@
 package ru.fsep.lessons.transfer;
 
 import com.google.common.base.Objects;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by aspire on 26.06.2015.
  */
-public class Human {
+public class Human implements Transable
+{
     private final int MIN_AGE = 0;
     private int age;
     private String name;
@@ -43,5 +45,9 @@ public class Human {
         final Human other = (Human) obj;
         return Objects.equal(this.age, other.age)
                 && Objects.equal(this.name, other.name);
+    }
+
+    public Human trans() {
+          throw new NotImplementedException();
     }
 }
