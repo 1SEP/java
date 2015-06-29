@@ -2,6 +2,7 @@ package ru.fesp.lessons;
 
 import org.junit.Before;
 import org.junit.Test;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import static org.junit.Assert.*;
 
@@ -15,7 +16,7 @@ public class HumanTest {
         human = new Human(12, "alala");
     }
 
-    @Test
+    @Test(expected = NotImplementedException.class)
     public void testTrans() throws Exception {
         human.trans();
     }
