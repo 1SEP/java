@@ -13,8 +13,8 @@ public class TransferTest {
     private Woman testWoman;
     private Man testMan;
     private Transfer testTransfer;
-    Transable []testTransables;
-    Transable []expectedTransables;
+    private Transable []testTransables;
+    private Transable []expectedTransables;
 
     @Before
     public void setUp() throws Exception {
