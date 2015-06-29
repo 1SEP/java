@@ -6,7 +6,7 @@ import com.google.common.base.Objects;
 /**
  * Created by Ôëþð on 26.06.2015.
  */
-public class Human {
+public class Human implements Transable{
     private int age;
     private String name;
     public final static int MIN_AGE = 0;
@@ -45,5 +45,9 @@ public class Human {
                 .add("age", age)
                 .add("name", name)
                 .toString();
+    }
+
+    public Human trans() {
+        return null;
     }
 }
