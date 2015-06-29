@@ -16,4 +16,8 @@ public class Woman extends Human {
     }
 
 
+    public Man trans()
+    {
+        return new Man(this.getAge(),this.getName());
+    }
 }

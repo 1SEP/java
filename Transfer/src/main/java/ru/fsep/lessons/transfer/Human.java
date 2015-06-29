@@ -2,11 +2,12 @@ package ru.fsep.lessons.transfer;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by Надежда on 26.06.2015.
  */
-public class Human {
+public class Human implements Transable {
     public static final int MIN_AGE = 0;
     private int age;
     private String name;
@@ -19,6 +20,9 @@ public class Human {
         else
              throw new IllegalArgumentException("Age is less than zero");
 
+    }
+
+    public Human() {
     }
 
     public int getAge(){
@@ -53,5 +57,9 @@ public class Human {
                 .add("Hello!My name is :", name)
                 .add(" My age is :", age)
                 .toString();
+    }
+
+    public Human trans() throws NotImplementedException{
+        return null;
     }
 }
