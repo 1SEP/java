@@ -14,6 +14,7 @@ public class TransferTest {
     private Man testMan;
     private Transfer testTransfer;
     Transable []testTransables;
+    Transable []expectedTransables;
 
     @Before
     public void setUp() throws Exception {
@@ -25,13 +26,15 @@ public class TransferTest {
         testTransables = new Transable[2];
         testTransables[0] = testMan;
         testTransables[1] = testWoman;
+
+        expectedTransables = new Transable[2];
+        expectedTransables[0] = new Woman(testMan.getAge(), testMan.getName());
+        expectedTransables[1] = new Man(testWoman.getAge(), testWoman.getName());
     }
 
     @Test
     public void testTransAll() throws Exception {
-        Transable []expected = new Transable[2];
-        expected[0] = new Woman(testMan.getAge(), testMan.getName());
-        expected[1] = new Man(testWoman.getAge(), testWoman.getName());
+        Transable []expected = expectedTransables;
 
         testTransfer.transAll(testTransables);
         Transable []actual = testTransables;
