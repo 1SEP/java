@@ -2,13 +2,17 @@ package ru.fsep.lesson.humans;
 
 import com.google.common.base.MoreObjects;
 
-/**
- * Created by user on 26.06.2015.
- */
-public class Women extends Human {
+import ru.fsep.lesson.Transeble;
+import ru.fsep.lesson.transfer.Transfer;
+
+public class Women extends Human implements Transeble{
 
     public Women(String name, int age) {
         super(name, age);
+    }
+
+    public Human trans(){
+        return Transfer.transfer(this);
     }
 
     @Override

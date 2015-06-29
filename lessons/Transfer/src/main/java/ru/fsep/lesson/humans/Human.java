@@ -2,8 +2,9 @@ package ru.fsep.lesson.humans;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import ru.fsep.lesson.Transeble;
 
-public class Human {
+public class Human implements Transeble{
 
     public static final int MIN_AGE = 18;
     final private int MAX_LONG_NAME = 15;
@@ -59,5 +60,9 @@ public class Human {
                 .add("My name", name)
                 .add("My age", age)
                 .toString();
+    }
+
+    public Human trans() {
+        return null;
     }
 }
