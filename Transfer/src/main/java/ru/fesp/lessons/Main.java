@@ -20,6 +20,8 @@ public class Main {
 
 //        System.out.println(new Transfer().trans(woman));
 //        System.out.println(new Transfer().trans(man));
+
+
         Transable [] transable = new Human[2];
         transable[0] = new Man(12,"alex");
         transable[1] = new Man(13,"kalex");
@@ -33,9 +35,5 @@ public class Main {
         for(int i=0; i<transable.length; i++)
             System.out.println(transable[i]);
 
-//        transable[0].trans();
-//        transable[1].trans();
-//
-//        System.out.println(transable[0] + " " + transable[1]);
     }
 }
