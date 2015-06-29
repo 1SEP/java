@@ -20,7 +20,6 @@ public class Man extends Human implements Transable{
     }
 
     public Woman trans(){
-
         return new Woman(this.getAge(), this.getName());
     }
 }

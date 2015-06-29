@@ -22,16 +22,13 @@ public class TransferTest {
         testWoman= new Woman(30, "Oksi");
         testMan = new Man(20 , "Max");
         transfer = new Transfer();
-
         transferAll = new Transfer();
         testTransables = new Human[2];
         testTransables[0] = new Man(12, "oleg");
         testTransables[1] = new Man(13, "Goga");
-
         testTransables2 = new Human[2];
         testTransables2[0] = new Woman(22, "olga");
         testTransables2[1] = new Woman(44, "qwerty");
-
     }
 
     @Test
@@ -50,12 +47,8 @@ public class TransferTest {
     @Test
     public void testTranceAll() throws Exception{
         transferAll.transAll(testTransables);
-        Class expected = testTransables[0].getClass();
-        Class actual = testTransables2[0].getClass();
+        Class expected = testTransables.getClass();
+        Class actual = testTransables2.getClass();
         assertEquals(expected, actual);
-
-        Class expected2 = testTransables[1].getClass();
-        Class actual2 = testTransables2[1].getClass();
-        assertEquals(expected2, actual2);
     }
 }

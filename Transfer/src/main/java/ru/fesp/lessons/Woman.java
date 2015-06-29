@@ -1,12 +1,10 @@
 package ru.fesp.lessons;
-
 import com.google.common.base.MoreObjects;
 
 /**
  * Created by Ôëþð on 26.06.2015.
  */
 public class Woman extends Human implements Transable{
-
     public Woman(int age, String name) {
         super(age, name);
     }
@@ -19,9 +17,7 @@ public class Woman extends Human implements Transable{
                 .toString();
     }
 
-
     public Man trans(){
-
         return new Man(this.getAge(), this.getName());
     }
 }

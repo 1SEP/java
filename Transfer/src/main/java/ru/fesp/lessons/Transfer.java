@@ -11,15 +11,16 @@ import java.util.List;
  */
 public class Transfer {
     public Man trans(Woman woman){
-
         return new Man(woman.getAge(), woman.getName());
     }
+
     public Woman trans (Man man) {
         return new Woman(man.getAge(),man.getName());
     }
+
     public void transAll(Transable transables[]){
         for(int i = 0; i < transables.length; i++){
-            transables[i] = (Transable) transables[i].trans();
+            transables[i] = transables[i].trans();
         }
     }
 }
