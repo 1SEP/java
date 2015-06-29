@@ -19,6 +19,6 @@ public class Woman extends Human implements Transable{
 
     @Override
     public Man trans(){
-        return new Man(this.getAge(), this.getName());
+        return Transfer.trans(this);
     }
 }
