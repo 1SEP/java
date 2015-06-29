@@ -3,6 +3,7 @@ package ru.fsep.lesson.humans;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import ru.fsep.lesson.Transeble;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Human implements Transeble{
 
@@ -63,6 +64,6 @@ public class Human implements Transeble{
     }
 
     public Human trans() {
-        return null;
+        throw new NotImplementedException();
     }
 }
