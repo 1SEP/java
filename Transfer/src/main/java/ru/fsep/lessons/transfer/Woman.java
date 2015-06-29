@@ -5,7 +5,7 @@ import com.google.common.base.MoreObjects;
 /**
  * Created by aspire on 26.06.2015.
  */
-public class Woman extends Human {
+public class Woman extends Human implements Transable {
     public Woman(int age, String name) {
         super(age, name);
     }
@@ -16,5 +16,9 @@ public class Woman extends Human {
                 .add("I am old woman. Age ", getAge())
                 .add("My name is ", getName())
                 .toString();
+    }
+
+    public Man trans() {
+        return Transfer.trans(this);
     }
 }
