@@ -3,11 +3,20 @@
  */
 public class Transfer {
 
-    public Man trans(Woman woman){
-        return new Man(woman.getAge(),woman.getName());
+    public Human trans(Human human){
+
+        if(human instanceof Man){
+            return new Woman(human.getAge(),human.getName());
+        }else if(human instanceof Woman){
+            return new Man(human.getAge(),human.getName());
+        }else throw  new IllegalArgumentException("Your object isn't human");
+
     }
 
-    public Woman trans(Man man){
-        return new Woman(man.getAge(),man.getName());
+    public void transAll(Transable[] transables){
+        for(Transable t:transables){
+            t=t.trans( (Human) t);
+        }
     }
+
 }

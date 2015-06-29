@@ -3,7 +3,7 @@ import com.google.common.base.Objects;
 /**
  * Created by Rauf on 29.06.2015.
  */
-public class Human {
+public class Human implements Transable{
     private final int MIN_AGE = 0;
     private int age;
     private String name;
@@ -42,5 +42,7 @@ public class Human {
                 && Objects.equal(this.name, other.name);
     }
 
-
+    public Human trans(Human human) {
+        return new Transfer().trans(human);
+    }
 }
