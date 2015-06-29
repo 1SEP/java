@@ -2,10 +2,10 @@ package ru.fsep.lesson.humans;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
-import ru.fsep.lesson.Transeble;
+import ru.fsep.lesson.Transable;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class Human implements Transeble{
+public class Human implements Transable {
 
     public static final int MIN_AGE = 18;
     final private int MAX_LONG_NAME = 15;

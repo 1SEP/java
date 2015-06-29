@@ -1,7 +1,6 @@
 package ru.fsep.lesson.transfer;
 
-import ru.fsep.lesson.Transeble;
-import ru.fsep.lesson.humans.Human;
+import ru.fsep.lesson.Transable;
 import ru.fsep.lesson.humans.Man;
 import ru.fsep.lesson.humans.Women;
 
@@ -17,7 +16,7 @@ public class Transfer {
         return man;
     }
 
-    public static void transferAll(Transeble[] arrIn){
+    public static void transferAll(Transable[] arrIn){
         for (int i = 0; i < arrIn.length; i++){
             arrIn[i] = arrIn[i].trans();
         }
