@@ -19,6 +19,7 @@ public class Man extends Human implements Transable{
                 .toString();
     }
 
+    @Override
     public Woman trans(){
         return new Woman(this.getAge(), this.getName());
     }

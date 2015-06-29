@@ -2,6 +2,7 @@ package ru.fesp.lessons;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * Created by Ôëþð on 26.06.2015.
@@ -47,7 +48,7 @@ public class Human implements Transable{
                 .toString();
     }
 
-    public Human trans() {
+    public Human trans() throws NotImplementedException{
         return null;
     }
 }

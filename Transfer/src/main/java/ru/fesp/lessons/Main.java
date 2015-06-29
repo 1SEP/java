@@ -7,7 +7,7 @@ public class Main {
     public static void main(String ... args){
         Transable [] transable = new Human[2];
         transable[0] = new Man(12,"alex");
-        transable[1] = new Man(13,"kalex");
+        transable[1] = new Woman(13,"kalex");
         for(int i=0; i<transable.length; i++)
             System.out.println(transable[i]);
 
