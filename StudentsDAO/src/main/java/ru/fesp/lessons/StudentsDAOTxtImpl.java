@@ -15,6 +15,8 @@ public class StudentsDAOTxtImpl implements StudentsDAO {
         ArrayList<Student> list;
         String line;
         String data[];
+        String name;
+        String surName;
         int point;
         try {
             sc = new Scanner(new File("C:\\Users\\Flyur\\java\\StudentsDAO\\src\\Students.txt"));
@@ -25,9 +27,10 @@ public class StudentsDAOTxtImpl implements StudentsDAO {
         while (sc.hasNext()){
             line = sc.nextLine();
             data = line.split(" ");
-
+            name = data[0];
+            surName = data[1];
             point = Integer.parseInt(data[2]);
-            list.add(new Student(data[0], data[1], point));
+            list.add(new Student(name, surName, point));
         }
         return list;
     }
