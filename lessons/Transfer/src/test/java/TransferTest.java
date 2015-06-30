@@ -14,8 +14,8 @@ public class TransferTest {
     private Transable test[] = new Transable[5];
     @Before
     public void setUp() throws Exception {
-        testingMan = new Man(5,"test");
-        testingWoman = new Woman(8,"test1");
+        testingMan = new Man(5,"Terminatot");
+        testingWoman = new Woman(8,"Robokop");
 
         test[0]= new Man(5, "mars");
         test[1]= new Woman(10, "katya");
