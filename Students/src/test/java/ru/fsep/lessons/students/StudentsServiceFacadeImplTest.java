@@ -31,4 +31,11 @@ public class StudentsServiceFacadeImplTest {
         Assert.assertEquals(expectedListOfStudents, actualListOfStudents);
 
     }
+
+    @Test
+    public void testGetAveragedPoint() throws Exception {
+        int expected = 50;
+        int actual = serviceFacadeImplTest.getAveragedPoint();
+        Assert.assertEquals(expected, actual);
+    }
 }

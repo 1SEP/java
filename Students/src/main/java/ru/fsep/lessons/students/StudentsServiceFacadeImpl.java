@@ -16,4 +16,15 @@ public class StudentsServiceFacadeImpl implements StudentsServiceFacade {
         ArrayList<Student> result = studentsDao.getAll();
         return result;
     }
+
+    public int getAveragedPoint(){
+        int totalPoints = 0;
+        int countOfStudents = 0;
+        for(Student student : getAll()){
+            totalPoints += student.getPoint();
+            ++countOfStudents;
+        }
+
+        return totalPoints / countOfStudents;
+    }
 }
