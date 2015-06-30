@@ -55,18 +55,8 @@ public class TestTransfer {
 
     @Test
     public void TestTranseAll() throws Exception{
-
         Transable[]expected = testExpected;
-
-        Transable[] tests = testTransfer.transeAll(testTransables);
-        Transable []actual = tests;
-
+        Transable []actual =testTransfer.transeAll(testTransables);
         assertArrayEquals(expected,actual);
-
-
-
-
-            }
-
-
+     }
 }
