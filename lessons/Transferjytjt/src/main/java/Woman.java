@@ -18,15 +18,12 @@ public class Woman extends Human {
                 .toString();
     }
 
-    public int getAge() {
-        return age;
-    }
-    public String getName() {
-        return name;
-    }
 
-    @Override
-    public Man trans() {
-        return new Man(this.age, this.name);
+
+    public int getAge() {
+        if (age > min_age) {
+            return age;}
+        else
+            throw new IllegalArgumentException("error");
     }
 }

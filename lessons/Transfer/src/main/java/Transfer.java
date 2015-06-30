@@ -3,12 +3,11 @@
  */
 public class Transfer {
 
-
-    public Woman transfer(Man man) {
-        return new Woman(man.getAge(), man.name);
+    public void transAll(Transable transables[]) {
+       for(int i = 0; i < transables.length; i++){
+           transables[i] = transables[i].trans();
+       }
     }
 
-    public Man transfer(Woman woman) {
-        return new Man(woman.getAge(), woman.name);
-    }
 }
+

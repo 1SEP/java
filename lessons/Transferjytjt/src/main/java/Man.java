@@ -13,34 +13,19 @@ public class Man extends Human {
         super(age, name);
     }
 
-  /*  @Override
+    @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("Man name is", name)
                 .add("Man age is", age)
                 .toString();
     }
-*/
-
-    @Override
-    public String toString() {
-        return "test" + age + "test" + name;
-    }
 
     public int getAge() {
-        return age;
+        if (age > min_age) {
+            return age;
+        }
+        else
+            throw new IllegalArgumentException("error");
     }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public Woman trans() {
-        return new Woman(this.age, this.name);
-    }
-
-
-
-
 }
