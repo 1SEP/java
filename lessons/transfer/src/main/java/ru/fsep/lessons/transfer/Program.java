@@ -1,5 +1,9 @@
 package ru.fsep.lessons.transfer;
 
+import ru.fsep.lessons.transfer.patients.Man;
+import ru.fsep.lessons.transfer.patients.Woman;
+import ru.fsep.lessons.transfer.clinic.Transfer;
+
 public class Program {
 
     public static void main(String[] args) {

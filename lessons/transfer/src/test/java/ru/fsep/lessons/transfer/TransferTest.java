@@ -2,6 +2,9 @@ package ru.fsep.lessons.transfer;
 
 import org.junit.Before;
 import org.junit.Test;
+import ru.fsep.lessons.transfer.patients.Man;
+import ru.fsep.lessons.transfer.patients.Woman;
+import ru.fsep.lessons.transfer.clinic.Transfer;
 
 import static junit.framework.TestCase.assertEquals;
 
