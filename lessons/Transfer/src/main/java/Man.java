@@ -39,8 +39,4 @@ public class Man extends Human {
     public Woman trans() {
         return new Woman(this.age, this.name);
     }
-
-
-
-
 }
