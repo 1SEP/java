@@ -15,7 +15,7 @@ public class TransferTest {
     @Before
     public void setUp() throws Exception {
         testingMan = new Man(5,"Terminatot");
-        testingWoman = new Woman(8,"Robokop");
+        testingWoman = new Woman(8,"Robokopsha");
 
         test[0]= new Man(5, "mars");
         test[1]= new Woman(10, "katya");
