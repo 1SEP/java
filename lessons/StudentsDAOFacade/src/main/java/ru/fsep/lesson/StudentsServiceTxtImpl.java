@@ -17,11 +17,12 @@ public class StudentsServiceTxtImpl implements StudentsServiceFacade {
         return studentsDAO.getAll();
     }
 
-//    public int midleMarkCaunter ArrayList<Student> arrStudents){
-//        int allMark = 0;
-//        for (int i = 0; i < arrStudents.size(); i++){
-//            allMark = allMark + arrStudents.get(i).getMark();
-//        }
-//        return allMark / arrStudents.size();
-//    }
+    public int midleMarkCaunter (){
+        ArrayList<Student> arrStudents = studentsDAO.getAll();
+        int allMark = 0;
+        for (int i = 0; i < arrStudents.size(); i++){
+            allMark = allMark + arrStudents.get(i).getMark();
+        }
+        return (allMark / arrStudents.size());
+    }
 }

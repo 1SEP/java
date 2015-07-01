@@ -3,7 +3,6 @@ package ru.fsep.lesson;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 import ru.fsep.lesson.interfaces.StudentsDAO;
 import ru.fsep.lesson.interfaces.StudentsServiceFacade;
 
@@ -20,7 +19,7 @@ public class StudentsDaoTxtImplTest {
     private StudentsDAO dao;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp(){
 
         expected = new ArrayList<Student>();
         expected.add(new Student("Ivanov", "Ivan", 99));
@@ -42,14 +41,14 @@ public class StudentsDaoTxtImplTest {
         assertEquals(expected.get(1), actual.get(1));
         assertEquals(expected.get(2), actual.get(2));
     }
+
+    @Test
+    public void testMidleMark(){
+        StudentsServiceTxtImpl facade = new StudentsServiceTxtImpl(dao);
+        int actual = facade.midleMarkCaunter();
+        int exp = 96;
+
+        assertEquals(exp, actual);
+    }
 }
 
-
-//ArrayList<Student> actual;
-//
-//StudentsServiceFacade studentsServiceFacade = new StudentsServiceTxtImpl(new StudentsDaoTxtImpl());
-//actual = studentsServiceFacade.getAll();
-//
-//        assertEquals(expected.get(0), actual.get(0));
-//        assertEquals(expected.get(1), actual.get(1));
-//        assertEquals(expected.get(2), actual.get(2));
