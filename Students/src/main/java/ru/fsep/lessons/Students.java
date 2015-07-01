@@ -1,5 +1,7 @@
 package ru.fsep.lessons;
 
+import com.google.common.base.MoreObjects;
+
 /**
  * Created by Надежда on 30.06.2015.
  */
@@ -50,5 +52,14 @@ public class Students {
         result = 31 * result + (secondName != null ? secondName.hashCode() : 0);
         result = 31 * result + mark;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("name", name)
+                .add("secondName", secondName)
+                .add("mark", mark)
+                .toString();
     }
 }

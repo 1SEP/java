@@ -11,17 +11,21 @@ import java.lang.String;
  */
 public class StudentDaoTxtImp  implements StudentsDao{
 
-
     @Override
-    public ArrayList<Students>  getAll() throws FileNotFoundException{
+    public ArrayList<Students>  getAll() {
         ArrayList<Students> listStudents = new ArrayList<Students>();
         String[] arrayStudents ;
         String buffer;
-        Scanner scanner = new Scanner(new File("C:\\Users\\Надежда\\IdeaProjects\\Students.txt"));
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File("C:\\Students.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         while (scanner.hasNext()){
             buffer = scanner.nextLine();
             arrayStudents = buffer.split(" ");
-            listStudents.add( new Students(arrayStudents[0], arrayStudents[1], Integer.parseInt(arrayStudents[3])));
+            listStudents.add( new Students(arrayStudents[0], arrayStudents[1], Integer.parseInt(arrayStudents[2])));
           }
         return listStudents;
     }

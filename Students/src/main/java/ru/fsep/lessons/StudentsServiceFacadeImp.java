@@ -15,9 +15,8 @@ private StudentsDao dao;
         this.dao = daoIn;
     }
 
-
     @Override
-    public ArrayList<Students> getAll() throws NotImplementedException, FileNotFoundException {
+    public ArrayList<Students> getAll() {
         return dao.getAll();
     }
 }
