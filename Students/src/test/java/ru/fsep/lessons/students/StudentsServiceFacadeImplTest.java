@@ -4,38 +4,30 @@ import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
 import org.junit.Assert;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class StudentsServiceFacadeImplTest {
 
-    private String fileNameTest;
-    private StudentsDaoTxtImpl studentsDaoTxtTest;
-    private StudentsServiceFacadeImpl serviceFacadeImplTest;
-    private ArrayList<Student> expectedListOfStudents;
-    private ArrayList<Student> actualListOfStudents;
+    private  final String fileName = "studentsData.txt";
+    private StudentsDao dao;
+    private ArrayList<Student> expected;
 
     @Before
-    public void setUp() throws Exception {
-        fileNameTest = "studentsData.txt";
-        studentsDaoTxtTest = new StudentsDaoTxtImpl(fileNameTest);
-        serviceFacadeImplTest = new StudentsServiceFacadeImpl(studentsDaoTxtTest);
-        expectedListOfStudents = new ArrayList<Student>();
+    public void setUp(){
+        expected = new ArrayList<Student>();
+        expected.add(new Student("Almakayev", "Ildar", 50));
+        expected.add(new Student("Tiglev", "Semen", 50));
+        expected.add(new Student("Fedorov", "Yura", 50));
 
-        expectedListOfStudents.add(new Student("Almakayev", "Ildar", 50));
-        expectedListOfStudents.add(new Student("Tiglev", "Semen", 50));
-        expectedListOfStudents.add(new Student("Fedorov", "Yura", 50));
+        dao = mock(StudentsDao.class);
+        when(dao.getAll()).thenReturn(expected);
     }
 
     @Test
     public void testGetAll() throws Exception {
-        actualListOfStudents = serviceFacadeImplTest.getAll();
-        Assert.assertEquals(expectedListOfStudents, actualListOfStudents);
-
-    }
-
-    @Test
-    public void testGetAveragedPoint() throws Exception {
-        int expected = 50;
-        int actual = serviceFacadeImplTest.getAveragedPoint();
+        StudentsServiceFacadeImpl facade = new StudentsServiceFacadeImpl(new StudentsDaoTxtImpl(fileName));
+        ArrayList<Student> actual = facade.getAll();
         Assert.assertEquals(expected, actual);
     }
 }
