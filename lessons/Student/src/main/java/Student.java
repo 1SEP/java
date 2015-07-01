@@ -1,3 +1,5 @@
+import com.google.common.base.Objects;
+
 /**
  * Created by ramil on 01.07.2015.
  */
@@ -14,6 +16,21 @@ public class Student {
         this.ball_phisic = ball_phisic;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Student other = (Student) obj;
+        return Objects.equal(this.name, other.name)
+                && Objects.equal(this.ball_matan, other.ball_matan)
+                && Objects.equal(this.ball_rus, other.ball_rus)
+                && Objects.equal(this.ball_phisic, other.ball_phisic);
+    }
+    @Override
     public String toString() {
         return name + ball_matan + ball_rus + ball_phisic;
     }
