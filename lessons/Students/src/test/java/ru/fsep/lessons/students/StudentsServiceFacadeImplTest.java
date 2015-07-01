@@ -9,7 +9,6 @@ import static org.mockito.Mockito.when;
 
 public class StudentsServiceFacadeImplTest {
 
-    private  final String fileName = "studentsData.txt";
     private StudentsDao dao;
     private ArrayList<Student> expected;
 
@@ -26,7 +25,7 @@ public class StudentsServiceFacadeImplTest {
 
     @Test
     public void testGetAll() throws Exception {
-        StudentsServiceFacadeImpl facade = new StudentsServiceFacadeImpl(new StudentsDaoTxtImpl(fileName));
+        StudentsServiceFacadeImpl facade = new StudentsServiceFacadeImpl(dao);
         ArrayList<Student> actual = facade.getAll();
         Assert.assertEquals(expected, actual);
     }
