@@ -13,7 +13,15 @@ public class StudentsServiceTxtImpl implements StudentsServiceFacade {
         this.studentsDAO = studentsDAO;
     }
 
-    public ArrayList<Student> getAll() throws FileNotFoundException {
+    public ArrayList<Student> getAll () {
         return studentsDAO.getAll();
     }
+
+//    public int midleMarkCaunter ArrayList<Student> arrStudents){
+//        int allMark = 0;
+//        for (int i = 0; i < arrStudents.size(); i++){
+//            allMark = allMark + arrStudents.get(i).getMark();
+//        }
+//        return allMark / arrStudents.size();
+//    }
 }

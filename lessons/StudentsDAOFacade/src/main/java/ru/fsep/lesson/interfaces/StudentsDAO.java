@@ -6,6 +6,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public interface StudentsDAO {
-    ArrayList<Student> getAll() throws FileNotFoundException;
+    ArrayList<Student> getAll();
 }
 

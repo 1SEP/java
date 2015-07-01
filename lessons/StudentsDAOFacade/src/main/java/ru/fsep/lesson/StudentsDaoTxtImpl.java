@@ -11,10 +11,16 @@ public class StudentsDaoTxtImpl implements StudentsDAO {
 
     final String path = "C:\\Users\\user\\Git\\java\\lessons\\StudentsDAOFacade\\src\\main\\resources\\Students.txt";
 
-    public ArrayList<Student> getAll() throws FileNotFoundException {
+    public ArrayList<Student> getAll() {
 
         ArrayList<Student> students = new ArrayList<Student>();
-        Scanner scanner = new Scanner(new File(path));
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(new File(path));
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+            System.exit(-1);
+        }
         String buffer;
 
         while (scanner.hasNext()){

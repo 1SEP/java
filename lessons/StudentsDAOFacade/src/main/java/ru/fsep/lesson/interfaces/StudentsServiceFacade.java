@@ -6,5 +6,5 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public interface StudentsServiceFacade {
-    ArrayList<Student> getAll() throws FileNotFoundException;
+    ArrayList<Student> getAll();
 }

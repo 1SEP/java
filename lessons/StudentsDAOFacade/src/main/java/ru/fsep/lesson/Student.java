@@ -4,11 +4,23 @@ import com.google.common.base.Objects;
 
 public class Student {
 
-    String firstName;
+    private String firstName;
 
-    String lastName;
+    public String getFirstName() {
+        return firstName;
+    }
 
-    int mark;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getMark() {
+        return mark;
+    }
+
+    private String lastName;
+
+    private int mark;
 
     public Student(String firstName, String lastName, int mark){
         this.firstName = firstName;
