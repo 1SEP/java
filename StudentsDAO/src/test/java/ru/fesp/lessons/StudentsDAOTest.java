@@ -34,5 +34,6 @@ public class StudentsDAOTest {
         assertEquals(expectedStudents.get(0), actualStudents.get(0));
         assertEquals(expectedStudents.get(1), actualStudents.get(1));
         assertEquals(expectedStudents.get(2), actualStudents.get(2));
+        assertEquals(expectedStudents.get(3), actualStudents.get(3));
     }
 }
