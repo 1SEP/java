@@ -38,8 +38,10 @@ public class StudentsDaoTxtImpl implements StudentsDao {
             result.add(student);
         }
 
-        scanner.close();
-
         return result;
+    }
+
+    public void closeFile(){
+        scanner.close();
     }
 }
