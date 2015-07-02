@@ -30,6 +30,8 @@ public class StudentsDaoTxtImpl implements StudentsDAO {
             students.add(new Student(dataOfStudent[0], dataOfStudent[1], Integer.parseInt(dataOfStudent[2])));
         }
 
+        scanner.close();
+
         return students;
     }
 }
