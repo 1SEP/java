@@ -10,7 +10,6 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String ... args){
-        Scanner sc = null;
         Error error = new Error();
         error.read();
         error.findLetter();
