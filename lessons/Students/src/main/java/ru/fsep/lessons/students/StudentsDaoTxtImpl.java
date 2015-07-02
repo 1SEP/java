@@ -37,6 +37,9 @@ public class StudentsDaoTxtImpl implements StudentsDao {
             Student student = new Student(surname, name, pointInt);
             result.add(student);
         }
+
+        scanner.close();
+
         return result;
     }
 }
