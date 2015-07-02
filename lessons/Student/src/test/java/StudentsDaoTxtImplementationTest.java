@@ -22,13 +22,13 @@ public class StudentsDaoTxtImplementationTest {
     @Before
     public void setUp() throws Exception {
         expected = new ArrayList<Student>();
-        //actual = new ArrayList<Student>();
+        actual = new ArrayList<Student>();
         file = "C://students.txt";
         expected.add(new Student("babay", 50, 90, 90));
         expected.add(new Student("malay", 89, 45 , 42));
-        dao = new StudentsDaoTxtImplementation(file);
+        //dao = new StudentsDaoTxtImplementation(file);
         dao = mock(StudentsDao.class);
-        when(dao.getAll()).thenReturn(expected);
+
 
     }
 
@@ -47,9 +47,11 @@ public class StudentsDaoTxtImplementationTest {
 
     @Test
     public void testMock() throws Exception {
-        StudentServiseFacade test = new StudentServiseFacade(new StudentsDaoTxtImplementation(file));
-        actual = test.getAll();
-       assertEquals(actual.get(0), expected.get(0));
+        when(dao.getAll()).thenReturn(actual);
+        StudentServiseFacade dao = new StudentServiseFacade(new StudentsDaoTxtImplementation(file));
+        actual = dao.getAll();
+        assertEquals(actual.get(0), expected.get(0));
+        assertEquals(actual.get(1), expected.get(1));
     }
 
 }
