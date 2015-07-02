@@ -7,4 +7,11 @@ import java.util.ArrayList;
  */
 public interface StudentsDAO {
     ArrayList<Student> getAll();
+
+    /**
+     * get sqrt from a
+     * @param a - input number
+     * @return sqrt of a
+     * @throws IllegalArgumentException if a is negative
+     */
 }

@@ -15,5 +15,5 @@ public class Main {
         transfer.transAll(transable);
         for(int i=0; i<transable.length; i++)
             System.out.println(transable[i]);
-    }
 }
+        }

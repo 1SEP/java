@@ -32,6 +32,7 @@ public class StudentsDAOTxtImpl implements StudentsDAO {
             point = Integer.parseInt(data[2]);
             list.add(new Student(name, surName, point));
         }
+        sc.close();
         return list;
     }
 }
