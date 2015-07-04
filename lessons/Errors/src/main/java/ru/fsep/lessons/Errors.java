@@ -15,6 +15,10 @@ public class Errors {
         this.message = "";
     }
 
+    /**
+     * @throws MyFileNotFoundException if file is not found
+     */
+
     public void readLetterFromFile(){
         try {
             scanner = new Scanner(new File(fileName));
@@ -24,6 +28,9 @@ public class Errors {
         }
     }
 
+    /**
+     * @throws NotUpperLetterException if a file is not contain the upper case letters
+     */
     public void findUpperLetter() {
         StringBuffer stringBuffer = new StringBuffer();
 
