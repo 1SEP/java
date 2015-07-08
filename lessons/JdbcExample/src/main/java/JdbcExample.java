@@ -4,11 +4,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created by aspire on 03.07.2015.
- */
-
 public class JdbcExample {
+
     public static void main(String[] args) {
         String user = "USER_Login";
         String password = "User_Password";
