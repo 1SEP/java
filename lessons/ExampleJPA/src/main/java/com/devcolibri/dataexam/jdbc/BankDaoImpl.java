@@ -45,6 +45,13 @@ public class BankDaoImpl implements BankDao {
     }
 
     public Bank addBank(Bank bank) {
-        return null;
+        long bankId = bank.getId();
+        String bankName = bank.getName();
+        SqlParameterSource param = new MapSqlParameterSource().addValue("id", bankId).addValue("name", bankName);
+        //laguage=SQL
+        String sql = "INSERT INTO bank VALUES (:id, :name);";
+        namedTemplate.update(sql, param);
+
+        return bank;
     }
 }

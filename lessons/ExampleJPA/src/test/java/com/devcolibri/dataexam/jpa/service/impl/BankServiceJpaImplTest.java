@@ -36,14 +36,17 @@ public class BankServiceJpaImplTest {
 
     @Test
     public void testAddBank() throws Exception {
-        String bankName = "Golden Bank";
+        String bankName = "new my Bank";
         Bank bank = new Bank(bankName);
-        bankService.addBank(bank);
 
-        Bank bankFromDB = bankService.getByName(bankName);
-        System.out.println("***********************************************************");
-        System.out.println(bankFromDB);
-        System.out.println("***********************************************************");
+        long start = System.currentTimeMillis();
+
+        Bank fromDB = bankService.addBank(bank);
+
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+
+        System.out.println(fromDB);
     }
 
     @Test

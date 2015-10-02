@@ -33,4 +33,22 @@ public class BankDaoImplTest {
         System.out.println(result);
     }
 
+    @Test
+    public void testAddBank() throws Exception {
+        Bank bank = new Bank("Deutsche Bank");
+
+        System.out.println(bank.getId());
+        long start = System.currentTimeMillis();
+        bankDao.addBank(bank);
+        long end = System.currentTimeMillis();
+
+        long time = end - start;
+
+        System.out.println(time);
+
+        Bank fromDB = bankDao.getBank(2);
+        System.out.println(fromDB);
+
+    }
+
 }

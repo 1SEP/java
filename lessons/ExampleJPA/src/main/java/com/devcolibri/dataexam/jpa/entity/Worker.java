@@ -1,6 +1,7 @@
 package com.devcolibri.dataexam.jpa.entity;
 
 import com.devcolibri.dataexam.jpa.entity.enums.WorkerStatus;
+import com.google.common.base.MoreObjects;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -29,7 +30,7 @@ public class Worker {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {MERGE, PERSIST})
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {MERGE, PERSIST})
     @JoinColumn(name = "bank_id", nullable = false)
     private Bank bank;
 
@@ -90,5 +91,17 @@ public class Worker {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("id", id)
+                .add("firstName", firstName)
+                .add("lastName", lastName)
+                .add("status", status)
+                .add("phoneNumber", phoneNumber)
+                .add("bank", bank)
+                .toString();
     }
 }

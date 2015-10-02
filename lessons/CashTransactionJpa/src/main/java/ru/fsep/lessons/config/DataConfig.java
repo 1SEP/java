@@ -1,10 +1,9 @@
-package com.devcolibri.dataexam.jpa.config;
+package ru.fsep.lessons.config;
 
 import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -16,11 +15,9 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("com.devcolibri.dataexam.jpa")
-@PropertySource("classpath:app.properties")
-@EnableJpaRepositories("com.devcolibri.dataexam.jpa.repository")
+@ComponentScan(basePackages = "ru.fsep.lessons")
+@EnableJpaRepositories("ru.fsep.lessons.repository")
 public class DataConfig {
-
     //DB properties
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
     private static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://localhost:3306/TestDB";
@@ -33,25 +30,9 @@ public class DataConfig {
     private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "com.devcolibri.dataexam.jpa.entity";
     private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "create";
 
-    @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistence.class);
-        entityManagerFactoryBean.setPackagesToScan(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN);
-        entityManagerFactoryBean.setJpaProperties(hibernateProp());
-
-        return entityManagerFactoryBean;
-    }
-
-    @Bean
-    public JpaTransactionManager transactionManager() {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
-
-        return transactionManager;
-    }
-
+    /**
+     * Здесь настраивается конфигурационный файл JPA.
+     */
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -63,11 +44,31 @@ public class DataConfig {
         return dataSource;
     }
 
-    private Properties hibernateProp() {
+    @Bean
+    public Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", PROPERTY_NAME_HIBERNATE_DIALECT);
         properties.put("hibernate.show_sql", PROPERTY_NAME_HIBERNATE_SHOW_SQL);
         properties.put("hibernate.hbm2ddl.auto", PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO);
+
         return properties;
+    }
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactBean() {
+        LocalContainerEntityManagerFactoryBean localContainer = new LocalContainerEntityManagerFactoryBean();
+        localContainer.setDataSource(dataSource());
+        localContainer.setPersistenceProviderClass(HibernatePersistence.class);
+        localContainer.setPackagesToScan(PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN);
+        localContainer.setJpaProperties(hibernateProperties());
+
+        return localContainer;
+    }
+
+    @Bean
+    public JpaTransactionManager jpaTransactionManager() {
+        JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
+        jpaTransactionManager.setEntityManagerFactory(localContainerEntityManagerFactBean().getObject());
+        return jpaTransactionManager;
     }
 }

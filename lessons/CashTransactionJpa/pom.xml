@@ -4,16 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.devcolibri.dataexam</groupId>
-    <artifactId>com.devcolibri.dataexam</artifactId>
-    <version>1.0</version>
-    <packaging>war</packaging>
+    <groupId>ru.fsep.lessons</groupId>
+    <artifactId>cash-transaction-jpa</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <java.version>1.7</java.version>
-        <spring.mvc>4.0.3.RELEASE</spring.mvc>
+        <!--<spring.mvc>4.0.3.RELEASE</spring.mvc>-->
         <spring.data>1.3.4.RELEASE</spring.data>
-        <javax.servlet>3.0.1</javax.servlet>
+        <!--<javax.servlet>3.0.1</javax.servlet>-->
         <mysql.version>5.1.29</mysql.version>
         <hb.manager>4.2.5.Final</hb.manager>
         <spring.test>3.2.4.RELEASE</spring.test>
@@ -34,18 +33,20 @@
             <version>18.0</version>
         </dependency>
 
+<!--
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.mvc}</version>
         </dependency>
+-->
 
-        <dependency>
+<!--        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet}</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>mysql</groupId>
@@ -80,25 +81,5 @@
         </dependency>
 
     </dependencies>
-
-    <build>
-        <finalName>devcolibri-dataexam</finalName>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

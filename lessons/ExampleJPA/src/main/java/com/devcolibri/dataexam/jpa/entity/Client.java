@@ -1,5 +1,7 @@
 package com.devcolibri.dataexam.jpa.entity;
 
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -7,16 +9,12 @@ import javax.persistence.*;
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
 
-/**
- * Created by ildar on 08.09.15.
- */
 @Entity
 @Table
 public class Client {
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name= "increment", strategy= "increment")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 6, nullable = false)
     private long id;
 
@@ -35,7 +33,7 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-    @ManyToOne(fetch = FetchType.LAZY,  cascade = {MERGE, PERSIST})
+    @ManyToOne(fetch = FetchType.EAGER,  cascade = {MERGE, PERSIST})
     @JoinColumn(name = "bank_id", nullable = false)
     private Bank bank;
 
@@ -105,5 +103,18 @@ public class Client {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("id", id)
+                .add("firstName", firstName)
+                .add("lastName", lastName)
+                .add("address", address)
+                .add("phoneNumber", phoneNumber)
+                .add("email", email)
+                .add("bank", bank)
+                .toString();
     }
 }

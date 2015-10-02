@@ -1,5 +1,7 @@
 package com.devcolibri.dataexam.jpa.entity;
 
+import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,8 +11,7 @@ import javax.persistence.*;
 public class Bank {
 
     @Id
-    @GeneratedValue(generator = "increment")
-    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", length = 6, nullable = false)
     private long id;
 
@@ -42,6 +43,10 @@ public class Bank {
 
     @Override
     public String toString() {
-        return "The bank with id = " + getId() + ", name = " + getName();
+        return MoreObjects.toStringHelper(this)
+                .add("id", id)
+                .add("name", name)
+                .toString();
     }
 }
+
