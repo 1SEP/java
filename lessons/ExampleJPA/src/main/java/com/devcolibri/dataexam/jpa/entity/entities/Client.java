@@ -1,8 +1,6 @@
-package com.devcolibri.dataexam.jpa.entity;
+package com.devcolibri.dataexam.jpa.entity.entities;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 

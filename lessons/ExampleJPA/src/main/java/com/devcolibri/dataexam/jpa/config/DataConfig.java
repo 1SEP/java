@@ -1,6 +1,10 @@
 package com.devcolibri.dataexam.jpa.config;
 
 import org.hibernate.ejb.HibernatePersistence;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.concurrent.ConcurrentMapCache;
+import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +16,11 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.util.Collections;
 import java.util.Properties;
 
 @Configuration
+@EnableCaching
 @EnableTransactionManagement
 @ComponentScan("com.devcolibri.dataexam.jpa")
 @PropertySource("classpath:app.properties")
@@ -32,6 +38,25 @@ public class DataConfig {
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "true";
     private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "com.devcolibri.dataexam.jpa.entity";
     private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "create";
+
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(PROPERTY_NAME_DATABASE_DRIVER);
+        dataSource.setUrl(PROPERTY_NAME_DATABASE_URL);
+        dataSource.setUsername(PROPERTY_NAME_DATABASE_USERNAME);
+        dataSource.setPassword(PROPERTY_NAME_DATABASE_PASSWORD);
+
+        return dataSource;
+    }
+
+    private Properties hibernateProp() {
+        Properties properties = new Properties();
+        properties.put("hibernate.dialect", PROPERTY_NAME_HIBERNATE_DIALECT);
+        properties.put("hibernate.show_sql", PROPERTY_NAME_HIBERNATE_SHOW_SQL);
+        properties.put("hibernate.hbm2ddl.auto", PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO);
+        return properties;
+    }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
@@ -52,22 +77,15 @@ public class DataConfig {
         return transactionManager;
     }
 
+    /**
+     * Bean for caching
+     * */
     @Bean
-    public DataSource dataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(PROPERTY_NAME_DATABASE_DRIVER);
-        dataSource.setUrl(PROPERTY_NAME_DATABASE_URL);
-        dataSource.setUsername(PROPERTY_NAME_DATABASE_USERNAME);
-        dataSource.setPassword(PROPERTY_NAME_DATABASE_PASSWORD);
+    public CacheManager cacheManager() {
+        SimpleCacheManager cacheManager = new SimpleCacheManager();
+        cacheManager.setCaches(Collections.singleton(new ConcurrentMapCache("bank")));
 
-        return dataSource;
+        return cacheManager;
     }
 
-    private Properties hibernateProp() {
-        Properties properties = new Properties();
-        properties.put("hibernate.dialect", PROPERTY_NAME_HIBERNATE_DIALECT);
-        properties.put("hibernate.show_sql", PROPERTY_NAME_HIBERNATE_SHOW_SQL);
-        properties.put("hibernate.hbm2ddl.auto", PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO);
-        return properties;
-    }
 }

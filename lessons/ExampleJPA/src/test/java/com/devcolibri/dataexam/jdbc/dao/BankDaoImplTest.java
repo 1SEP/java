@@ -1,7 +1,7 @@
 package com.devcolibri.dataexam.jdbc.dao;
 
 import com.devcolibri.dataexam.jdbc.BankDaoImpl;
-import com.devcolibri.dataexam.jpa.entity.Bank;
+import com.devcolibri.dataexam.jpa.entity.entities.Bank;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

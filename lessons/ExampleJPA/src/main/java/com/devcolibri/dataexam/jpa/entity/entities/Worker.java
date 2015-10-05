@@ -1,4 +1,4 @@
-package com.devcolibri.dataexam.jpa.entity;
+package com.devcolibri.dataexam.jpa.entity.entities;
 
 import com.devcolibri.dataexam.jpa.entity.enums.WorkerStatus;
 import com.google.common.base.MoreObjects;

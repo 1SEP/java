@@ -1,6 +1,6 @@
 package com.devcolibri.dataexam.jpa.service.impl;
 
-import com.devcolibri.dataexam.jpa.entity.Worker;
+import com.devcolibri.dataexam.jpa.entity.entities.Worker;
 import com.devcolibri.dataexam.jpa.repository.WorkerRepository;
 import com.devcolibri.dataexam.jpa.service.WorkerService;
 import org.springframework.beans.factory.annotation.Autowired;

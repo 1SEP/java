@@ -1,6 +1,6 @@
 package com.devcolibri.dataexam.jpa.service;
 
-import com.devcolibri.dataexam.jpa.entity.Client;
+import com.devcolibri.dataexam.jpa.entity.entities.Client;
 
 import java.util.List;
 

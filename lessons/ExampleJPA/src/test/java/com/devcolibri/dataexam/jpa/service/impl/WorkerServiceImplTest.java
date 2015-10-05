@@ -1,8 +1,8 @@
 package com.devcolibri.dataexam.jpa.service.impl;
 
 import com.devcolibri.dataexam.jpa.config.DataConfig;
-import com.devcolibri.dataexam.jpa.entity.Bank;
-import com.devcolibri.dataexam.jpa.entity.Worker;
+import com.devcolibri.dataexam.jpa.entity.entities.Bank;
+import com.devcolibri.dataexam.jpa.entity.entities.Worker;
 import com.devcolibri.dataexam.jpa.entity.enums.WorkerStatus;
 import com.devcolibri.dataexam.jpa.service.WorkerService;
 import org.junit.Assert;

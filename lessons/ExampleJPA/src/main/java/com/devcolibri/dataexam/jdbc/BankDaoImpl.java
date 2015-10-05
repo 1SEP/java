@@ -1,6 +1,6 @@
 package com.devcolibri.dataexam.jdbc;
 
-import com.devcolibri.dataexam.jpa.entity.Bank;
+import com.devcolibri.dataexam.jpa.entity.entities.Bank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

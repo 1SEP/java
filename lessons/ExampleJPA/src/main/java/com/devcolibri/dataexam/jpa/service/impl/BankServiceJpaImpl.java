@@ -1,9 +1,10 @@
 package com.devcolibri.dataexam.jpa.service.impl;
 
-import com.devcolibri.dataexam.jpa.entity.Bank;
+import com.devcolibri.dataexam.jpa.entity.entities.Bank;
 import com.devcolibri.dataexam.jpa.repository.BankRepository;
 import com.devcolibri.dataexam.jpa.service.BankService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class BankServiceJpaImpl implements BankService {
         bankRepository.delete(id);
     }
 
+    @Cacheable("bank")
     public Bank getByName(String name) {
         return bankRepository.findByName(name);
     }

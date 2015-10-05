@@ -1,6 +1,6 @@
 package com.devcolibri.dataexam.jpa.service.impl;
 
-import com.devcolibri.dataexam.jpa.entity.Client;
+import com.devcolibri.dataexam.jpa.entity.entities.Client;
 import com.devcolibri.dataexam.jpa.repository.ClientRepository;
 import com.devcolibri.dataexam.jpa.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client addClient(Client client) {
-
         return clientRepository.saveAndFlush(client);
     }
 

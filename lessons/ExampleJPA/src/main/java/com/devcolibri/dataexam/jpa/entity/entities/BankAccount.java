@@ -1,4 +1,4 @@
-package com.devcolibri.dataexam.jpa.entity;
+package com.devcolibri.dataexam.jpa.entity.entities;
 
 import org.hibernate.annotations.GenericGenerator;
 

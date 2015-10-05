@@ -1,7 +1,7 @@
 package com.devcolibri.dataexam.jpa.service.impl;
 
 import com.devcolibri.dataexam.jpa.config.DataConfig;
-import com.devcolibri.dataexam.jpa.entity.Bank;
+import com.devcolibri.dataexam.jpa.entity.entities.Bank;
 import com.devcolibri.dataexam.jpa.service.BankService;
 import org.junit.Before;
 import org.junit.Test;
