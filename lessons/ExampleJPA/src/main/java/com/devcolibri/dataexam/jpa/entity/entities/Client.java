@@ -35,7 +35,7 @@ public class Client {
     @JoinColumn(name = "bank_id", nullable = false)
     private Bank bank;
 
-    public Client() {
+    private Client() {
     }
 
     public Client(String firstName, String lastName, String address, String phoneNumber, String email, Bank bank) {
@@ -73,34 +73,6 @@ public class Client {
 
     public Bank getBank() {
         return bank;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setBank(Bank bank) {
-        this.bank = bank;
     }
 
     @Override

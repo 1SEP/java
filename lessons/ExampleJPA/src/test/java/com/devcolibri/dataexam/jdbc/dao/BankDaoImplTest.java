@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 public class BankDaoImplTest {
 
     ApplicationContext context;
@@ -37,7 +39,7 @@ public class BankDaoImplTest {
     public void testAddBank() throws Exception {
         Bank bank = new Bank("Deutsche Bank");
 
-        System.out.println(bank.getId());
+//        System.out.println(bank.getId());
         long start = System.currentTimeMillis();
         bankDao.addBank(bank);
         long end = System.currentTimeMillis();
@@ -48,7 +50,12 @@ public class BankDaoImplTest {
 
         Bank fromDB = bankDao.getBank(2);
         System.out.println(fromDB);
+    }
 
+    @Test
+    public void testGetAll() throws Exception {
+        List<Bank> result = bankDao.getAll();
+        System.out.println("Size of collection = " + result.size());
     }
 
 }

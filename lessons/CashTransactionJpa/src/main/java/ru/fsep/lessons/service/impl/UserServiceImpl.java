@@ -1,6 +1,7 @@
 package ru.fsep.lessons.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.fsep.lessons.entities.User;
 import ru.fsep.lessons.repository.UserRepository;
 import ru.fsep.lessons.service.UserService;
@@ -9,6 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

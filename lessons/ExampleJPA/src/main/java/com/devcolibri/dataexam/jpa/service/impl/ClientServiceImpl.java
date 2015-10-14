@@ -30,6 +30,11 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    public void update(Client client) {
+        clientRepository.saveAndFlush(client);
+    }
+
+    @Override
     public List<Client> getAllClients() {
         List<Client> result = clientRepository.findAll();
         return result;

@@ -6,43 +6,40 @@ import com.devcolibri.dataexam.jpa.service.BankService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import java.util.Arrays;
 import java.util.List;
 
-@DirtiesContext
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = DataConfig.class)
 public class BankServiceJpaImplTest {
 
-    @Resource
+    @Autowired
     private EntityManagerFactory emf;
 
     protected EntityManager em;
 
-    @Resource
+    @Autowired
     private BankService bankService;
 
     @Before
     public void setUp() throws Exception {
-        System.out.println(emf);
         em = emf.createEntityManager();
     }
 
     @Test
     public void testAddBank() throws Exception {
-        String bankName = "new my Bank";
+        String bankName = "Deutche Bank";
         Bank bank = new Bank(bankName);
 
         long start = System.currentTimeMillis();
-
         Bank fromDB = bankService.addBank(bank);
-
         long end = System.currentTimeMillis();
         System.out.println(end - start);
 
@@ -51,20 +48,26 @@ public class BankServiceJpaImplTest {
 
     @Test
     public void testGetAll() throws Exception {
-        Bank bank1 = new Bank("bank1");
-        bankService.addBank(bank1);
-
-        Bank bank2 = new Bank("bank2");
-        bankService.addBank(bank2);
-
         long startTime = System.currentTimeMillis();
         List<Bank> all = bankService.getAll();
         long endTime = System.currentTimeMillis();
-        long result = endTime - startTime;
-        System.out.println("Time of JPA = " + result);
+        System.out.println("Time of JPA = " + (endTime - startTime));
+        System.out.println("Size of collection = " + all.size());
 
-        for (Bank bank : all) {
-            System.out.println(bank);
-        }
+        System.out.println(all);
+    }
+
+    @Test
+    public void testGetByName() throws Exception {
+        long start = System.currentTimeMillis();
+        Bank result = bankService.getByName("SberBank");
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+        System.out.println(result);
+    }
+
+    @Test
+    public void testEdit() throws Exception {
+        //TODO
     }
 }

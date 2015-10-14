@@ -21,6 +21,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id")
     )
+
     private Set<Book> books;
 
     public Set<Book> getBooks() {

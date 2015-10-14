@@ -15,18 +15,17 @@ import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-@DirtiesContext
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = DataConfig.class)
 public class ClientServiceImplTest {
 
     @Resource
-    EntityManagerFactory emf;
+    private EntityManagerFactory emf;
 
-    EntityManager em;
+    private EntityManager em;
 
     @Resource
-    ClientService clientService;
+    private ClientService clientService;
 
     @Before
     public void setUp() throws Exception {
@@ -49,7 +48,8 @@ public class ClientServiceImplTest {
 
     @Test
     public void testGetClient() throws Exception {
-
+        Client fromDb = clientService.getClient(1);
+        System.out.println(fromDb);
     }
 
     @Test
@@ -60,5 +60,20 @@ public class ClientServiceImplTest {
     @Test
     public void testGetAllClients() throws Exception {
 
+    }
+
+    @Test
+    public void testUpdate() throws Exception {
+/*
+        Client client = new Client();
+        client.setId(1);
+        client.setFirstName("Ildar");
+        client.setLastName("Almakayev");
+        client.setAddress("fwe");
+        Bank bank = new Bank("Alfa-bank");
+        bank.setId(3);
+        client.setBank(bank);
+        clientService.update(client);
+*/
     }
 }

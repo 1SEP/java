@@ -18,7 +18,7 @@ public class Bank {
     @Column(name = "name")
     private String name;
 
-    public Bank() {
+    protected Bank() {
     }
 
     public Bank(String name) {
@@ -31,14 +31,6 @@ public class Bank {
 
     public String getName() {
         return name;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override
