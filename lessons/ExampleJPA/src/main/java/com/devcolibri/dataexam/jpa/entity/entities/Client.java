@@ -4,6 +4,7 @@ import com.google.common.base.MoreObjects;
 
 import javax.persistence.*;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.CascadeType.PERSIST;
 
@@ -31,7 +32,7 @@ public class Client {
     @Column(name = "email")
     private String email;
 
-    @ManyToOne(fetch = FetchType.EAGER,  cascade = {MERGE, PERSIST})
+    @ManyToOne(fetch = FetchType.LAZY,  cascade = ALL)
     @JoinColumn(name = "bank_id", nullable = false)
     private Bank bank;
 
@@ -84,7 +85,7 @@ public class Client {
                 .add("address", address)
                 .add("phoneNumber", phoneNumber)
                 .add("email", email)
-                .add("bank", bank)
+                .add("bank", getBank())
                 .toString();
     }
 }

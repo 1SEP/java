@@ -7,6 +7,7 @@ import com.devcolibri.dataexam.jpa.service.ClientService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -37,43 +38,29 @@ public class ClientServiceImplTest {
         Bank bank = new Bank("SberBank");
         Client client = new Client("Ildar", "Almakayev", "Kazan", "phone number", "email", bank);
 
-        long start = System.currentTimeMillis();
-        clientService.addClient(client);
-        long end = System.currentTimeMillis();
-
-        System.out.println(end - start);
-        Client fromDB = clientService.getClient(client.getId() + 1);
-        System.out.println(fromDB);
+        Client result = clientService.addClient(client);
+        System.out.println(result);
     }
 
     @Test
     public void testGetClient() throws Exception {
-        Client fromDb = clientService.getClient(1);
-        System.out.println(fromDb);
+        System.out.println("*************************************");
+        Client client = clientService.getClient(1);
+        System.out.println(client);
+        System.out.println("*************************************");
     }
 
-    @Test
+//    @Test
     public void testDeleteClient() throws Exception {
 
     }
 
-    @Test
+//    @Test
     public void testGetAllClients() throws Exception {
 
     }
 
-    @Test
+//    @Test
     public void testUpdate() throws Exception {
-/*
-        Client client = new Client();
-        client.setId(1);
-        client.setFirstName("Ildar");
-        client.setLastName("Almakayev");
-        client.setAddress("fwe");
-        Bank bank = new Bank("Alfa-bank");
-        bank.setId(3);
-        client.setBank(bank);
-        clientService.update(client);
-*/
     }
 }

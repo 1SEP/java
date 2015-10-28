@@ -1,10 +1,6 @@
-package com.devcolibri.dataexam.jpa.config;
+package ru.fsep.lessons.config;
 
 import org.hibernate.ejb.HibernatePersistence;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cache.concurrent.ConcurrentMapCache;
-import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -12,29 +8,27 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
-import java.util.Collections;
 import java.util.Properties;
 
 @Configuration
-@EnableCaching
 @EnableTransactionManagement
-@ComponentScan(basePackages = "com.devcolibri.dataexam")
-@EnableJpaRepositories("com.devcolibri.dataexam.jpa.repository")
+@ComponentScan("ru.fsep.lessons")
+@EnableJpaRepositories("ru.fsep.lessons.repository")
 public class DataConfig {
-
     //DB properties
     private static final String PROPERTY_NAME_DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://localhost:3306/MyGamification";
+    private static final String PROPERTY_NAME_DATABASE_URL = "jdbc:mysql://localhost:3306/TestDB";
     private static final String PROPERTY_NAME_DATABASE_USERNAME = "root";
     private static final String PROPERTY_NAME_DATABASE_PASSWORD = "root";
 
     //Hibernate configuration
     private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "org.hibernate.dialect.MySQLDialect";
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "true";
-    private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "com.devcolibri.dataexam.jpa.entity";
+    private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "ru.fsep.lessons.models";
     private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "auto";
 
     @Bean
@@ -68,19 +62,19 @@ public class DataConfig {
     }
 
     @Bean
-    public JpaTransactionManager transactionManager() {
+    public PlatformTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
 
         return transactionManager;
     }
 
-    @Bean
+    /*@Bean
     public CacheManager cacheManager() {
         SimpleCacheManager cacheManager = new SimpleCacheManager();
         cacheManager.setCaches(Collections.singleton(new ConcurrentMapCache("banks")));
 
         return cacheManager;
-    }
+    }*/
 
 }
