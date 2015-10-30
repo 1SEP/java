@@ -29,7 +29,7 @@ public class DataConfig {
     private static final String PROPERTY_NAME_HIBERNATE_DIALECT = "org.hibernate.dialect.MySQLDialect";
     private static final String PROPERTY_NAME_HIBERNATE_SHOW_SQL = "true";
     private static final String PROPERTY_NAME_ENTITYMANAGER_PACKAGES_TO_SCAN = "ru.fsep.lessons.models";
-    private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "auto";
+    private static final String PROPERTY_NAME_HIBERNATE_HBM2DDL_AUTO = "create";
 
     @Bean
     public DataSource dataSource() {

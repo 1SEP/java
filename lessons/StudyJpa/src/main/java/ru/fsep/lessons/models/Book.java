@@ -15,6 +15,7 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 @Table(name = "books")
 public class Book implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -22,16 +23,11 @@ public class Book implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne(fetch = LAZY, cascade = ALL)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
     public Book() {
     }
 
-    public Book(String name, User user) {
+    public Book(String name) {
         this.name = name;
-        this.user = user;
     }
 
     public int getId() {
@@ -40,10 +36,6 @@ public class Book implements Serializable {
 
     public String getName() {
         return name;
-    }
-
-    public User getUser() {
-        return user;
     }
 
     @Override

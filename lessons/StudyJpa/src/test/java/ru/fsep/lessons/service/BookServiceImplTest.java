@@ -44,27 +44,34 @@ public class BookServiceImplTest {
 
     @Test
     public void testSave() throws Exception {
-        User user = new User("Ivan", new Auth("loginius", "passwordius"));
-        User persistedUser = userService.save(user);
-        System.out.println(persistedUser);
+        //Create entity user
+        User user = new User("Ildar", new Auth("login", "password"));
 
-        Book book = new Book("Spring in action", persistedUser);
+        //Add first book into collection
+        Book book = new Book("Spring in action");
         Book persistedBook = bookService.save(book);
-        persistedUser.getBooks().add(persistedBook);
+        user.getBooks().add(persistedBook);
+
+        //Add other book into collection
+        book = new Book("Effective Java");
+        Book persistedBook2 = bookService.save(book);
+        user.getBooks().add(persistedBook2);
+
+        //Persist user to DB
+        userService.save(user);
 
     }
 
     @Test
     public void testGetBook() throws Exception {
-        int id = 2;
+        int id = 1;
         User user = userService.getUser(id);
         System.out.println(user);
+        System.out.println("----------------------");
     }
 
     @Test
     public void testFindByNameIgnoreCase() throws Exception {
-        List<Book> result = bookService.findByNameIgnoreCase("spring in action");
-        System.out.println(result.get(0).getUser());
     }
 
     @Test
@@ -74,14 +81,11 @@ public class BookServiceImplTest {
 
     @Test
     public void testGetWithDataJpa() throws Exception {
-        Book book = bookService.getBook(2);
-        System.out.println(book);
-        System.out.println(book.getUser());
+
     }
 
     @Test
     public void testGetAll() throws Exception {
-        List<User> userList = userService.getAll();
-        System.out.println(userList);
+
     }
 }

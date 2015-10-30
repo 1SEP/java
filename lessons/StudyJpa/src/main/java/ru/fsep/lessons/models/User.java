@@ -21,8 +21,9 @@ public class User implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "user",fetch = LAZY)
-    private List<Book> books;// = new ArrayList<Book>(0);
+    @OneToMany(fetch = LAZY)
+    @JoinColumn(name = "user_id", nullable = true)
+    private List<Book> books = new ArrayList<Book>();
 
     @Embedded
     private Auth auth;

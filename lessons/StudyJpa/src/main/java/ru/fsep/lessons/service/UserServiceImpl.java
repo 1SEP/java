@@ -20,7 +20,6 @@ public class UserServiceImpl implements UserService {
     @Transactional(readOnly = true)
     public User getUser(int id) {
         User result = userRepository.findOne(id);
-        Hibernate.initialize(result.getBooks());
         return result;
     }
 
