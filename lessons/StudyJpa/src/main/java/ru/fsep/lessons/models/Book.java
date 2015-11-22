@@ -1,41 +1,61 @@
 package ru.fsep.lessons.models;
 
 import com.google.common.base.MoreObjects;
-import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
 
-import java.io.Serializable;
-import java.util.List;
-
-import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.FetchType.EAGER;
-import static javax.persistence.FetchType.LAZY;
+/**
+ * 02.11.15
+ * Book
+ *
+ * @author Ildar Almakayev (First Software Engineering Platform)
+ * @version v1.0
+ */
 
 @Entity
-@Table(name = "books")
-public class Book implements Serializable {
+@Table(name = "book")
+public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
     private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     public Book() {
     }
 
-    public Book(String name) {
+    public Book(String name, User user) {
         this.name = name;
+        this.user = user;
     }
 
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
@@ -43,6 +63,7 @@ public class Book implements Serializable {
         return MoreObjects.toStringHelper(this)
                 .add("id", id)
                 .add("name", name)
+//                .add("user", user)
                 .toString();
     }
 }

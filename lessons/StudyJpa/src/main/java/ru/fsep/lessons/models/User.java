@@ -3,62 +3,55 @@ package ru.fsep.lessons.models;
 import com.google.common.base.MoreObjects;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import static javax.persistence.FetchType.EAGER;
-import static javax.persistence.FetchType.LAZY;
+/**
+ * 02.11.15
+ * User
+ *
+ * @author Ildar Almakayev (First Software Engineering Platform)
+ * @version v1.0
+ */
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
+    @Column(length = 100, nullable = false)
     private String name;
-
-    @OneToMany(fetch = LAZY)
-    @JoinColumn(name = "user_id", nullable = true)
-    private List<Book> books = new ArrayList<Book>();
-
-    @Embedded
-    private Auth auth;
 
     public User() {
     }
 
-    public User(String name, Auth auth) {
+    public User(String name) {
         this.name = name;
-        this.auth = auth;
     }
 
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
 
-    public Auth getAuth() {
-        return auth;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public List<Book> getBooks() {
-        return books;
-    }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("id", id)
                 .add("name", name)
-                .add("Auht", auth)
-                .add("books",books)
                 .toString();
     }
 }
